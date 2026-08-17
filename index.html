@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Senhas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1> Gerador de Senhas</h1>
+        <p>Crie e teste senhas fortes sem limites.</p>
+    </header>
+    <main>
+        <!-- GERADOR -->
+        <section class="card">
+            <h2>Gerar sua senha</h2>
+            <div class="senha-box">
+                <input
+                    type="text"
+                    id="senhaGerada"
+                    readonly
+                    placeholder="Sua senha aparecerá aqui"
+                >
+                <button
+                    class="btn-copiar"
+                    onclick="copiarSenha()"
+                >
+                    Copiar
+                </button>
+            </div>
+            <div class="controle">
+
+                <div class="controle-topo">
+                    <span>Tamanho</span>
+                <span id="valorTamanho">16</span>
+                </div>
+
+                <input
+                    type="range"
+                    id="tamanho"
+                    min="1"
+                    max="500"
+                    value="16"
+                    oninput="atualizarTamanho()"
+                >
+
+            </div>
+
+            <label class="opcao">
+                <input type="checkbox" id="maiusculas" checked>
+                Letras maiúsculas
+            </label>
+
+            <label class="opcao">
+                <input type="checkbox" id="minusculas" checked>
+                Letras minúsculas
+            </label>
+
+            <label class="opcao">
+                <input type="checkbox" id="numeros" checked>
+                Números
+            </label>
+
+            <label class="opcao">
+                <input type="checkbox" id="simbolos" checked>
+                Símbolos
+            </label>
+
+            <button
+                class="btn-gerar"
+                onclick="gerarSenha()"
+            >
+                 Gerar nova senha
+            </button>
+
+        </section>
+
+
+        <!-- TESTADOR -->
+
+        <section class="card">
+
+            <h2>Testar senha</h2>
+
+            <input
+                type="password"
+                id="senhaTeste"
+                placeholder="Digite uma senha para testar"
+                oninput="testarSenha()"
+            >
+
+            <div class="forca-texto">
+
+                <span>Força:</span>
+
+                <span id="nivel">—</span>
+
+            </div>
+
+            <div class="barra">
+                <div id="barraForca"></div>
+            </div>
+
+            <ul class="criterios">
+
+                <li id="criterioTamanho">
+                    Pelo menos 8 caracteres
+                </li>
+
+                <li id="criterioMaiuscula">
+                    Contém letra maiúscula
+                </li>
+
+                <li id="criterioMinuscula">
+                    Contém letra minúscula
+                </li>
+
+                <li id="criterioNumero">
+                    Contém número
+                </li>
+
+                <li id="criterioSimbolo">
+                    Contém símbolo
+                </li>
+
+            </ul>
+
+            <div class="dicas">
+
+                <strong>💡 Dica</strong>
+
+                <p id="dica">
+                    Digite uma senha para começar o teste.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        Gerador de senhas
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
